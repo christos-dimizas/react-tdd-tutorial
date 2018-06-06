@@ -2,8 +2,8 @@ import React from 'react';
 import { Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 
 export default class Gift extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             person:'',
             present: '',
@@ -28,6 +28,12 @@ export default class Gift extends React.Component {
                         />
                     </FormGroup>
                 </Form>
+                <Button
+                    className="btn-remove"
+                    onClick={() => this.props.removeGift(this.props.gift.id)}
+                >
+                    Remove Gift
+                </Button>
             </div>
         );
     }
