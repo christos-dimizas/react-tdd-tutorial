@@ -19,13 +19,22 @@ describe('App', () => {
         beforeEach(() => {
             app.find('.btn-add').simulate('click');
         });
+
+        //
         it('Adds a new gift to "state"', () => {
             expect(app.state().gifts).toEqual([{id: 1}]);
         });
 
+        //
         it('Adds a new gift to the rendered list', () => {
             expect(app.find('.gift-list').children().length).toEqual(1); // 2 because of  (clicked on the above test too)
         });
+
+        //
+        it('Creates a Gift component', () => {
+            expect(app.find('Gift').exists()).toEqual(true);
+        });
+
         // This removes test pollution issues.
         afterEach(() => {
             app.setState({gifts: []});
